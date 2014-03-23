@@ -1,0 +1,109 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+AR	Makefile	/^AR            = ar cqs$/;"	m
+CC	Makefile	/^CC            = gcc$/;"	m
+CFLAGS	Makefile	/^CFLAGS        = -m64 -pipe -march=x86-64 -mtune=generic -O2 -pipe -Wall -W -D_REENTRANT $(DEFINES)$/;"	m
+CHK_DIR_EXISTS	Makefile	/^CHK_DIR_EXISTS= test -d$/;"	m
+COMPRESS	Makefile	/^COMPRESS      = gzip -9f$/;"	m
+COPY	Makefile	/^COPY          = cp -f$/;"	m
+COPY_DIR	Makefile	/^COPY_DIR      = $(COPY) -r$/;"	m
+COPY_FILE	Makefile	/^COPY_FILE     = $(COPY)$/;"	m
+CXX	Makefile	/^CXX           = g++$/;"	m
+CXXFLAGS	Makefile	/^CXXFLAGS      = -m64 -pipe -march=x86-64 -mtune=generic -O2 -pipe -Wall -W -D_REENTRANT $(DEFINES)$/;"	m
+DEFINES	Makefile	/^DEFINES       = -DQT_NO_DEBUG -DQT_GUI_LIB -DQT_CORE_LIB -DQT_SHARED$/;"	m
+DEL_DIR	Makefile	/^DEL_DIR       = rmdir$/;"	m
+DEL_FILE	Makefile	/^DEL_FILE      = rm -f$/;"	m
+DESTDIR	Makefile	/^DESTDIR       = $/;"	m
+DIST	Makefile	/^DIST          = \/usr\/share\/qt\/mkspecs\/common\/g++.conf \\$/;"	m
+GUI_INC	Gui.hpp	2;"	d
+Gui	Gui.cpp	/^Gui::Gui( QWidget* parent ):$/;"	f	class:Gui	signature:( QWidget* parent )
+Gui	Gui.hpp	/^        Gui ( QWidget* parent = 0 );$/;"	p	class:Gui	access:public	signature:( QWidget* parent = 0 )
+Gui	Gui.hpp	/^class Gui : public QWidget, private Ui::Interface$/;"	c	inherits:QWidget,Ui::Interface
+Gui::Gui	Gui.cpp	/^Gui::Gui( QWidget* parent ):$/;"	f	class:Gui	signature:( QWidget* parent )
+Gui::Gui	Gui.hpp	/^        Gui ( QWidget* parent = 0 );$/;"	p	class:Gui	access:public	signature:( QWidget* parent = 0 )
+Gui::getStaticMetaObject	moc_Gui.cpp	/^const QMetaObject &Gui::getStaticMetaObject() { return staticMetaObject; }$/;"	f	class:Gui	signature:()
+Gui::metaObject	moc_Gui.cpp	/^const QMetaObject *Gui::metaObject() const$/;"	f	class:Gui	signature:() const
+Gui::on_bouttonEnvoyer_clicked	Gui.cpp	/^void Gui::on_bouttonEnvoyer_clicked(){$/;"	f	class:Gui	signature:()
+Gui::on_bouttonEnvoyer_clicked	Gui.hpp	/^        void on_bouttonEnvoyer_clicked();$/;"	p	class:Gui	access:private	signature:()
+Gui::qt_metacall	moc_Gui.cpp	/^int Gui::qt_metacall(QMetaObject::Call _c, int _id, void **_a)$/;"	f	class:Gui	signature:(QMetaObject::Call _c, int _id, void **_a)
+Gui::qt_metacast	moc_Gui.cpp	/^void *Gui::qt_metacast(const char *_clname)$/;"	f	class:Gui	signature:(const char *_clname)
+Gui::staticMetaObject	moc_Gui.cpp	/^const QMetaObject Gui::staticMetaObject = {$/;"	m	class:Gui	file:
+INCPATH	Makefile	/^INCPATH       = -I\/usr\/share\/qt\/mkspecs\/linux-g++-64 -I. -I\/usr\/include\/QtCore -I\/usr\/include\/QtGui -I\/usr\/include -I. -I. -I.$/;"	m
+INSTALL_DIR	Makefile	/^INSTALL_DIR   = $(COPY_DIR)$/;"	m
+INSTALL_FILE	Makefile	/^INSTALL_FILE  = install -m 644 -p$/;"	m
+INSTALL_PROGRAM	Makefile	/^INSTALL_PROGRAM = install -m 755 -p$/;"	m
+Interface	ui_interface.h	/^    class Interface: public Ui_Interface {};$/;"	c	namespace:Ui	inherits:Ui_Interface
+LFLAGS	Makefile	/^LFLAGS        = -m64 -Wl,--hash-style=gnu -Wl,--as-needed -Wl,-O1$/;"	m
+LIBS	Makefile	/^LIBS          = $(SUBLIBS)  -L\/usr\/lib -lQtGui -lQtCore -lpthread $/;"	m
+LINK	Makefile	/^LINK          = g++$/;"	m
+MKDIR	Makefile	/^MKDIR         = mkdir -p$/;"	m
+MOVE	Makefile	/^MOVE          = mv -f$/;"	m
+OBJECTS	Makefile	/^OBJECTS       = Gui.o \\$/;"	m
+OBJECTS_DIR	Makefile	/^OBJECTS_DIR   = .\/$/;"	m
+QMAKE	Makefile	/^QMAKE         = \/usr\/bin\/qmake$/;"	m
+QMAKE_TARGET	Makefile	/^QMAKE_TARGET  = Interface$/;"	m
+RANLIB	Makefile	/^RANLIB        = $/;"	m
+SED	Makefile	/^SED           = sed$/;"	m
+SOURCES	Makefile	/^SOURCES       = Gui.cpp \\$/;"	m
+STRIP	Makefile	/^STRIP         = strip$/;"	m
+SYMLINK	Makefile	/^SYMLINK       = ln -f -s$/;"	m
+TAR	Makefile	/^TAR           = tar -cf$/;"	m
+TARGET	Makefile	/^TARGET        = Interface$/;"	m
+UI_INTERFACE_H	ui_interface.h	11;"	d
+Ui	ui_interface.h	/^namespace Ui {$/;"	n
+Ui::Interface	ui_interface.h	/^    class Interface: public Ui_Interface {};$/;"	c	namespace:Ui	inherits:Ui_Interface
+Ui_Interface	ui_interface.h	/^class Ui_Interface$/;"	c
+Ui_Interface::bouttonEnvoyer	ui_interface.h	/^    QPushButton *bouttonEnvoyer;$/;"	m	class:Ui_Interface	access:public
+Ui_Interface::gridLayout	ui_interface.h	/^    QGridLayout *gridLayout;$/;"	m	class:Ui_Interface	access:public
+Ui_Interface::gridLayoutWidget	ui_interface.h	/^    QWidget *gridLayoutWidget;$/;"	m	class:Ui_Interface	access:public
+Ui_Interface::hlEnvoyer	ui_interface.h	/^    QHBoxLayout *hlEnvoyer;$/;"	m	class:Ui_Interface	access:public
+Ui_Interface::labelDestinataire	ui_interface.h	/^    QLabel *labelDestinataire;$/;"	m	class:Ui_Interface	access:public
+Ui_Interface::labelExpediteur	ui_interface.h	/^    QLabel *labelExpediteur;$/;"	m	class:Ui_Interface	access:public
+Ui_Interface::labelMessage	ui_interface.h	/^    QLabel *labelMessage;$/;"	m	class:Ui_Interface	access:public
+Ui_Interface::labelPiecesJointes	ui_interface.h	/^    QLabel *labelPiecesJointes;$/;"	m	class:Ui_Interface	access:public
+Ui_Interface::labelServeur	ui_interface.h	/^    QLabel *labelServeur;$/;"	m	class:Ui_Interface	access:public
+Ui_Interface::labelSujet	ui_interface.h	/^    QLabel *labelSujet;$/;"	m	class:Ui_Interface	access:public
+Ui_Interface::lineDestinataire	ui_interface.h	/^    QLineEdit *lineDestinataire;$/;"	m	class:Ui_Interface	access:public
+Ui_Interface::lineExpediteur	ui_interface.h	/^    QLineEdit *lineExpediteur;$/;"	m	class:Ui_Interface	access:public
+Ui_Interface::linePiecesJointes	ui_interface.h	/^    QLineEdit *linePiecesJointes;$/;"	m	class:Ui_Interface	access:public
+Ui_Interface::lineServeur	ui_interface.h	/^    QLineEdit *lineServeur;$/;"	m	class:Ui_Interface	access:public
+Ui_Interface::lineSujet	ui_interface.h	/^    QLineEdit *lineSujet;$/;"	m	class:Ui_Interface	access:public
+Ui_Interface::retranslateUi	ui_interface.h	/^    void retranslateUi(QWidget *Interface)$/;"	f	class:Ui_Interface	access:public	signature:(QWidget *Interface)
+Ui_Interface::setupUi	ui_interface.h	/^    void setupUi(QWidget *Interface)$/;"	f	class:Ui_Interface	access:public	signature:(QWidget *Interface)
+Ui_Interface::textMessage	ui_interface.h	/^    QTextEdit *textMessage;$/;"	m	class:Ui_Interface	access:public
+Ui_Interface::verticalLayout	ui_interface.h	/^    QVBoxLayout *verticalLayout;$/;"	m	class:Ui_Interface	access:public
+Ui_Interface::verticalSpacer	ui_interface.h	/^    QSpacerItem *verticalSpacer;$/;"	m	class:Ui_Interface	access:public
+bouttonEnvoyer	ui_interface.h	/^    QPushButton *bouttonEnvoyer;$/;"	m	class:Ui_Interface	access:public
+getStaticMetaObject	moc_Gui.cpp	/^const QMetaObject &Gui::getStaticMetaObject() { return staticMetaObject; }$/;"	f	class:Gui	signature:()
+gridLayout	ui_interface.h	/^    QGridLayout *gridLayout;$/;"	m	class:Ui_Interface	access:public
+gridLayoutWidget	ui_interface.h	/^    QWidget *gridLayoutWidget;$/;"	m	class:Ui_Interface	access:public
+hlEnvoyer	ui_interface.h	/^    QHBoxLayout *hlEnvoyer;$/;"	m	class:Ui_Interface	access:public
+labelDestinataire	ui_interface.h	/^    QLabel *labelDestinataire;$/;"	m	class:Ui_Interface	access:public
+labelExpediteur	ui_interface.h	/^    QLabel *labelExpediteur;$/;"	m	class:Ui_Interface	access:public
+labelMessage	ui_interface.h	/^    QLabel *labelMessage;$/;"	m	class:Ui_Interface	access:public
+labelPiecesJointes	ui_interface.h	/^    QLabel *labelPiecesJointes;$/;"	m	class:Ui_Interface	access:public
+labelServeur	ui_interface.h	/^    QLabel *labelServeur;$/;"	m	class:Ui_Interface	access:public
+labelSujet	ui_interface.h	/^    QLabel *labelSujet;$/;"	m	class:Ui_Interface	access:public
+lineDestinataire	ui_interface.h	/^    QLineEdit *lineDestinataire;$/;"	m	class:Ui_Interface	access:public
+lineExpediteur	ui_interface.h	/^    QLineEdit *lineExpediteur;$/;"	m	class:Ui_Interface	access:public
+linePiecesJointes	ui_interface.h	/^    QLineEdit *linePiecesJointes;$/;"	m	class:Ui_Interface	access:public
+lineServeur	ui_interface.h	/^    QLineEdit *lineServeur;$/;"	m	class:Ui_Interface	access:public
+lineSujet	ui_interface.h	/^    QLineEdit *lineSujet;$/;"	m	class:Ui_Interface	access:public
+main	main.cpp	/^int main( int argc, char* argv[] ){$/;"	f	signature:( int argc, char* argv[] )
+metaObject	moc_Gui.cpp	/^const QMetaObject *Gui::metaObject() const$/;"	f	class:Gui	signature:() const
+on_bouttonEnvoyer_clicked	Gui.cpp	/^void Gui::on_bouttonEnvoyer_clicked(){$/;"	f	class:Gui	signature:()
+on_bouttonEnvoyer_clicked	Gui.hpp	/^        void on_bouttonEnvoyer_clicked();$/;"	p	class:Gui	access:private	signature:()
+qt_meta_data_Gui	moc_Gui.cpp	/^static const uint qt_meta_data_Gui[] = {$/;"	v	file:
+qt_meta_stringdata_Gui	moc_Gui.cpp	/^static const char qt_meta_stringdata_Gui[] = {$/;"	v	file:
+qt_metacall	moc_Gui.cpp	/^int Gui::qt_metacall(QMetaObject::Call _c, int _id, void **_a)$/;"	f	class:Gui	signature:(QMetaObject::Call _c, int _id, void **_a)
+qt_metacast	moc_Gui.cpp	/^void *Gui::qt_metacast(const char *_clname)$/;"	f	class:Gui	signature:(const char *_clname)
+retranslateUi	ui_interface.h	/^    void retranslateUi(QWidget *Interface)$/;"	f	class:Ui_Interface	access:public	signature:(QWidget *Interface)
+setupUi	ui_interface.h	/^    void setupUi(QWidget *Interface)$/;"	f	class:Ui_Interface	access:public	signature:(QWidget *Interface)
+staticMetaObject	moc_Gui.cpp	/^const QMetaObject Gui::staticMetaObject = {$/;"	m	class:Gui	file:
+textMessage	ui_interface.h	/^    QTextEdit *textMessage;$/;"	m	class:Ui_Interface	access:public
+verticalLayout	ui_interface.h	/^    QVBoxLayout *verticalLayout;$/;"	m	class:Ui_Interface	access:public
+verticalSpacer	ui_interface.h	/^    QSpacerItem *verticalSpacer;$/;"	m	class:Ui_Interface	access:public
