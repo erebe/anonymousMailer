@@ -18,8 +18,8 @@
  */
 
 #include    "Mail.hpp"
-#include	"Base64/Base64.hpp"
-#include	<fstream>
+#include    "Base64/Base64.hpp"
+#include    <fstream>
 #include    <string>
 
 using namespace std;
@@ -42,9 +42,7 @@ void Mail::send() {
     /*-----------------------------------------------------------------------------
      *  On contacte le serveur smtp et on se présente à lui
      *-----------------------------------------------------------------------------*/
-    Socket::connect();
-
-    cout << Socket::get( 500 ) << endl;
+    cout << Socket::read( 500 ) << endl;
 
     string message = "EHLO erebe\nMAIL FROM:<" + _expediteur +  ">\n";
     for( auto& destinataire: _destinataires ) {
@@ -52,8 +50,8 @@ void Mail::send() {
     }
     message += "DATA";
 
-    Socket::send( message );
-    cout << Socket::get( 500 ) << endl;
+    Socket::write( message );
+    cout << Socket::read( 500 ) << endl;
 
     message.erase();
 
@@ -106,23 +104,23 @@ void Mail::send() {
     /*-----------------------------------------------------------------------------
      *  On ajoute les pièces-jointes dans le message
      *-----------------------------------------------------------------------------*/
-    for(auto& pieceJointe: _piecesJointes) { 
-		char* fichierEncode = Base64::encodeFromFile( pieceJointe );
+    for(auto& pieceJointe: _piecesJointes) {
+        char* fichierEncode = Base64::encodeFromFile( pieceJointe );
 
-		message += "\n--iletaitunefois\n";
-		message += "Content-Type: " + Mail::getMimeType( pieceJointe ) + ";";
-		message += " name=\"";
-		message += pieceJointe;
-		message += "\"\n";
-		message += "Content-Transfer-Encoding: base64\n";
-		message += "Content-Disposition: attachment;";
-		message += " filename=\"";
-		message += pieceJointe;
-		message += "\"\n\n";
-		message += fichierEncode;
+        message += "\n--iletaitunefois\n";
+        message += "Content-Type: " + Mail::getMimeType( pieceJointe ) + ";";
+        message += " name=\"";
+        message += pieceJointe;
+        message += "\"\n";
+        message += "Content-Transfer-Encoding: base64\n";
+        message += "Content-Disposition: attachment;";
+        message += " filename=\"";
+        message += pieceJointe;
+        message += "\"\n\n";
+        message += fichierEncode;
 
-		delete[] fichierEncode;
-	}
+        delete[] fichierEncode;
+    }
 
     /*-----------------------------------------------------------------------------
      *  On termine l'echange avec le serveur smtp
@@ -131,12 +129,12 @@ void Mail::send() {
     message += ".\r\n";
     message += "QUIT";
 
-    Socket::send( message );
-    cout << Socket::get( 500 ) << endl;
+    Socket::write( message );
+    cout << Socket::read( 500 ) << endl;
 }
 
 
-/* 
+/*
  * ===  FUNCTION  ======================================================================
  *         Name:  explodeString
  *  Description:  Permet d'extraire toutes les sous-chaines séparées par un delimiteur
@@ -173,9 +171,9 @@ string Mail::getMimeType(const string& nomFichier ){
     if( !mimeListe.is_open() )
         throw ios_base::failure("Impossible d'ouvrir le fichier mime.type" );
 
-    
+
     while( !trouve && getline( mimeListe, ligne ) ) {
-        
+
         if( ligne.substr(0, ligne.find_first_of( '\t' ) - 1 ) == nomFic ){
             trouve = true;
             mime = ligne.substr( ligne.find_first_of( '\t' ) + 1 );

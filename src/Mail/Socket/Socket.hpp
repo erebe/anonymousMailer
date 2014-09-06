@@ -40,30 +40,16 @@
 
         public:
             /* ====================  LIFECYCLE     ======================================= */
-            Socket ( std::string ip = "0", unsigned short int port = 0 );
+            Socket (const std::string& host, unsigned short int port);
             ~Socket ();
 
             /* ====================  ACCESSORS     ======================================= */
-            std::string getIp () const;
-            unsigned short int getPort () const;
-            bool isConnected () const;
-            bool isBinded () const;
-            int send ( const std::string& chaine ) const;
-            std::string get ( const unsigned int max ) const;
+            int write ( const std::string& chaine ) const;
+            std::string read (unsigned int max ) const;
 
-            /* ====================  MUTATORS      ======================================= */
-            int init ( std::string ip = "0", unsigned short int port = 0 );
-            Socket accept ();
-            bool connect ();
-            bool close ();
-
-            /* ====================  OPERATORS     ======================================= */
 
         protected:
-            int _descripteur;
-            struct addrinfo *_resul, *_resul0;
-            bool _binded;
-            bool _connected;
+            int _socketFd;
             std::string _ip;
             unsigned short int _port;
 
