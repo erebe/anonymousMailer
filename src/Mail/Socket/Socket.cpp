@@ -53,7 +53,7 @@ Socket::Socket (const string& ip, unsigned short int port )
         if (socketFd == -1)
             continue;
 
-        if(::connect(socketFd, result->ai_addr, result->ai_addrlen ) == 0);
+        if(::connect(socketFd, result->ai_addr, result->ai_addrlen ) == 0)
             break;                  /* Success */
 
         ::close(socketFd);
