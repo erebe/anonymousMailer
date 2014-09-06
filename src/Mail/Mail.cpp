@@ -107,7 +107,7 @@ void Mail::send() {
      *  On ajoute les pièces-jointes dans le message
      *-----------------------------------------------------------------------------*/
     for(auto& pieceJointe: _piecesJointes) { 
-		char* fichierEncode = Base64::encode( pieceJointe );
+		char* fichierEncode = Base64::encodeFromFile( pieceJointe );
 
 		message += "\n--iletaitunefois\n";
 		message += "Content-Type: " + Mail::getMimeType( pieceJointe ) + ";";
