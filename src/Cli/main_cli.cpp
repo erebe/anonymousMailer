@@ -74,20 +74,20 @@ main (int argc, char *argv[]) {
     if( message.empty() ) {
         bool messageEcrit = false;
         string buffer;
-        
+
         cout << "Veuillez saisir votre message."
                 " Pour le terminer saisissez une ligne ne contenant qu'un point"
                 << endl;
 
         while( !messageEcrit ) {
             std::getline(cin, buffer);
-            
+
             if( buffer == "." ) {
                 messageEcrit = true;
             }else {
                  message += buffer + "\r\n";
             }
-        
+
         }
     }
 

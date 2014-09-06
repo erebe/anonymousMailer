@@ -1,0 +1,13 @@
+This is an very old project and with an old C++ style, be sure to tweak it to your needs before using
+it.
+
+It is a toy example of how to play with SMTP protocol
+    - Connect to a remote SMTP server
+    - Handle multiple destinatory
+    - false sender email
+    - Custom ASCII art in the message source
+    - Handle attachments (base64 convertion and mime part)
+
+Be sure that your firewall allow you to connect directly to an SMTP server
+(port 25), in France most internet box does not allow that by default for
+security reason
