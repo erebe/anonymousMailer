@@ -50,8 +50,5 @@
 
         protected:
             int _socketFd;
-            std::string _ip;
-            unsigned short int _port;
-
     };
 #endif

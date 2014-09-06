@@ -26,11 +26,11 @@ using namespace std;
 
 Mail::Mail(const string& serveurSmtp, const string& expediteur, string& destinataires, const string& sujet,
            const string& message, string& piecesJointes):
-    Socket(serveurSmtp, 25),
     _serveurSmtp(serveurSmtp),
     _expediteur(expediteur),
     _sujet(sujet),
-    _message(message)
+    _message(message),
+    _socket(serveurSmtp, 25)
 {
     explodeString( destinataires, ",", _destinataires );
     explodeString( piecesJointes, ",", _piecesJointes );
@@ -42,7 +42,7 @@ void Mail::send() {
     /*-----------------------------------------------------------------------------
      *  On contacte le serveur smtp et on se présente à lui
      *-----------------------------------------------------------------------------*/
-    cout << Socket::read( 500 ) << endl;
+    cout << _socket.read( 500 ) << endl;
 
     string message = "EHLO erebe\nMAIL FROM:<" + _expediteur +  ">\n";
     for( auto& destinataire: _destinataires ) {
@@ -50,8 +50,8 @@ void Mail::send() {
     }
     message += "DATA";
 
-    Socket::write( message );
-    cout << Socket::read( 500 ) << endl;
+    _socket.write( message );
+    cout << _socket.read( 500 ) << endl;
 
     message.erase();
 
@@ -79,7 +79,7 @@ void Mail::send() {
     +  "             ....```''::::;;;;;;;;.  .:;;;;;:.      `:;;:;;'.  .;;;;;;;;;:::'''``....           \n"
     +  "                            ..:;;:  `;;;;;;;;;`   .';;:;;;;;:.  :;;:..                          \n"
     +  "                    .......```;;;;.';;;;;;;;;;;:..:;;;;;;;;;;:`.:;;;```......                   \n"
-    +  "        `'''::::::;;;;;;;;;;x;;;;;:`...........................';;;;;;;;;;;;;;;;:::::''''.      \n"
+    +  "        `'''::::::;;;;;;;;;;;;;;;;:`...........................';;;;;;;;;;;;;;;;:::::''''.      \n"
     +  "        .;;;;;;;;;;;;;;;;;;;;::;;;;'.        E r e b e        ';;;;::;;;;;;;;;;;;;;;;;;;:.      \n"
     +  "         .:;;;;;;;;;;;;;:'`..  ';;;;:'`.       .::.       .`':;;;;'  ..`':;;;;;;;;;;;;;'        \n"
     +  "          .;;;;;;;;;'`..     .':;;;;;;;::'`   .:;;;.   `'::;;;;;;;:'.     ..`';;;;;;;;'         \n"
@@ -107,17 +107,17 @@ void Mail::send() {
     for(auto& pieceJointe: _piecesJointes) {
         char* fichierEncode = Base64::encodeFromFile( pieceJointe );
 
-        message += "\n--iletaitunefois\n";
-        message += "Content-Type: " + Mail::getMimeType( pieceJointe ) + ";";
-        message += " name=\"";
-        message += pieceJointe;
-        message += "\"\n";
-        message += "Content-Transfer-Encoding: base64\n";
-        message += "Content-Disposition: attachment;";
-        message += " filename=\"";
-        message += pieceJointe;
-        message += "\"\n\n";
-        message += fichierEncode;
+        message += string("\n--iletaitunefois\n")
+        + "Content-Type: " + Mail::getMimeType( pieceJointe ) + ";"
+        + " name=\""
+        + pieceJointe
+        + "\"\n"
+        + "Content-Transfer-Encoding: base64\n"
+        + "Content-Disposition: attachment;"
+        + " filename=\""
+        + pieceJointe
+        + "\"\n\n"
+        + fichierEncode;
 
         delete[] fichierEncode;
     }
@@ -125,12 +125,12 @@ void Mail::send() {
     /*-----------------------------------------------------------------------------
      *  On termine l'echange avec le serveur smtp
      *-----------------------------------------------------------------------------*/
-    message += "\n--iletaitunefois--\n";
-    message += ".\r\n";
-    message += "QUIT";
+    message += string("\n--iletaitunefois--\n")
+    + ".\r\n"
+    + "QUIT";
 
-    Socket::write( message );
-    cout << Socket::read( 500 ) << endl;
+    _socket.write( message );
+    cout << _socket.read( 500 ) << endl;
 }
 
 

@@ -1,14 +1,8 @@
 /* Auteur: Erebe (Romain Gerard)
  * Codé en l'an 10 de cette ère
  * Version 1.0
- * libre de droit, prevenez moi seulement
  *
  *
- * Librairie pour manipuler les sockets de facon simple
- * Construit pour respecter la RFC spécifiant
- * qu'une chaine de caractère doit se terminer par <CR> + <LF>
- *
- * A faire : Remplacer les messagew d'erreurs par des runtime_errors
  */
 
 #include    <stdio.h>
@@ -28,16 +22,14 @@ using namespace std;
  *                port -> Détermine le port auquel est associé socket
  * =====================================================================================
  */
-Socket::Socket (const string& ip, unsigned short int port ):
-    _ip ( ip ),
-    _port ( port )
+Socket::Socket (const string& ip, unsigned short int port )
 {
 
     int s;
     char num_port[10];
     struct addrinfo passeport;
 
-    snprintf ( num_port, sizeof(num_port), "%d", _port );
+    snprintf ( num_port, sizeof(num_port), "%d", port );
     memset ( &passeport, 0, sizeof (passeport) );
     passeport.ai_family = AF_INET;
     passeport.ai_socktype = SOCK_STREAM;
@@ -49,7 +41,7 @@ Socket::Socket (const string& ip, unsigned short int port ):
 
     struct addrinfo* result;
     struct addrinfo* rp;
-    if ( ( s = getaddrinfo ( _ip.c_str(), num_port, &passeport, &result ) ) != 0 ) {
+    if ( ( s = getaddrinfo ( ip.c_str(), num_port, &passeport, &result ) ) != 0 ) {
         throw runtime_error(string(  "Impossible d'obtenir l'information sur l'hôte\n")
                                   + "getaddrinfo: " + gai_strerror(s));
     }

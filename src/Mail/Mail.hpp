@@ -11,7 +11,7 @@
  *  Description: Permet d'envoyer des mails au format MIME contenant des pieces-jointes
  * =====================================================================================
  */
-class Mail: public Socket
+class Mail
 {
     public:
         /* ====================  LIFECYCLE     ======================================= */
@@ -43,6 +43,7 @@ class Mail: public Socket
         std::string _serveurSmtp, _expediteur, _sujet, _message;
         std::vector < std::string > _piecesJointes;
         std::vector < std::string > _destinataires;
+        Socket _socket;
 
         static void explodeString( std::string& chaine, std::string separator, std::vector <std::string>& conteneur );
         
